@@ -1,8 +1,13 @@
-const MainLayout = () => {
+export const metadata = {
+  title: 'Property Pulse | Find The Perfect Rental',
+  description: 'Find your dream rental property',
+};
+
+const MainLayout = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <div>MainLayout</div>
+        <div>{children}</div>
       </body>
     </html>
   );
