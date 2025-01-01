@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import logo from '@/assets/images/logo-white.png';
 import profileDefault from '@/assets/images/profile.png';
@@ -10,6 +11,8 @@ import { FaGoogle } from 'react-icons/fa';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+
+  const pathname = usePathname();
 
   return (
     <nav className="bg-blue-700 border-b border-blue-500">
@@ -58,7 +61,9 @@ const Navbar = () => {
               <div className="flex space-x-2">
                 <Link
                   href="/"
-                  className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className={`${
+                    pathname === '/' ? 'bg-black' : ''
+                  }, text-white  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                 >
                   Home
                 </Link>
@@ -147,13 +152,11 @@ const Navbar = () => {
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="user-menu-button"
-                  tabIndex="-1"
                 >
                   <Link
                     href="/profile"
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
-                    tabIndex="-1"
                     id="user-menu-item-0"
                   >
                     Your Profile
@@ -162,7 +165,6 @@ const Navbar = () => {
                     href="saved-properties"
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
-                    tabIndex="-1"
                     id="user-menu-item-2"
                   >
                     Saved Properties
@@ -171,7 +173,6 @@ const Navbar = () => {
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
-                    tabIndex="-1"
                     id="user-menu-item-2"
                   >
                     Sign Out
