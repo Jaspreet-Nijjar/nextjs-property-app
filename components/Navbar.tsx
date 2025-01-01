@@ -11,6 +11,7 @@ import { FaGoogle } from 'react-icons/fa';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const pathname = usePathname();
 
@@ -75,14 +76,16 @@ const Navbar = () => {
                 >
                   Properties
                 </Link>
-                <Link
-                  href="/properties/add"
-                  className={`${
-                    pathname === '/properties/add' ? 'bg-black' : ''
-                  } text-white  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
-                >
-                  Add Property
-                </Link>
+                {isLoggedIn && (
+                  <Link
+                    href="/properties/add"
+                    className={`${
+                      pathname === '/properties/add' ? 'bg-black' : ''
+                    } text-white  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                  >
+                    Add Property
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -208,14 +211,17 @@ const Navbar = () => {
             >
               Properties
             </Link>
-            <Link
-              href="/properties/add"
-              className={`${
-                pathname === '/properties/add' ? 'bg-black' : ''
-              } text-white block rounded-md px-3 py-2 text-base font-medium`}
-            >
-              Add Property
-            </Link>
+            {isLoggedIn && (
+              <Link
+                href="/properties/add"
+                className={`${
+                  pathname === '/properties/add' ? 'bg-black' : ''
+                } text-white block rounded-md px-3 py-2 text-base font-medium`}
+              >
+                Add Property
+              </Link>
+            )}
+
             <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4">
               <FaGoogle className="text-white mr-2" />
               <span>Login or Register</span>
