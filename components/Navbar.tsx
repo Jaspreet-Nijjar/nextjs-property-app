@@ -69,13 +69,17 @@ const Navbar = () => {
                 </Link>
                 <Link
                   href="/properties"
-                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className={`${
+                    pathname === '/properties' ? 'bg-black' : ''
+                  }, text-white  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                 >
                   Properties
                 </Link>
                 <Link
-                  href="/add-property"
-                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  href="/properties/add"
+                  className={`${
+                    pathname === '/properties/add' ? 'bg-black' : ''
+                  }, text-white  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                 >
                   Add Property
                 </Link>
