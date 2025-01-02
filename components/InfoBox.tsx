@@ -1,4 +1,17 @@
 import Link from 'next/link';
+import { ReactNode } from 'react';
+
+interface InfoBoxProps {
+  heading: string;
+  backgroundColor: string;
+  textColor: string;
+  buttonInfo: {
+    link: string;
+    backgroundColor: string;
+    text: string;
+  };
+  children: ReactNode;
+}
 
 const InfoBox = ({
   heading,
@@ -6,7 +19,7 @@ const InfoBox = ({
   textColor = 'text-gray-800',
   buttonInfo,
   children,
-}) => {
+}: InfoBoxProps) => {
   return (
     <div className={`${backgroundColor}p-6 rounded-lg shadow-md  `}>
       <h2 className={`${textColor} text-2xl font-bold`}>{heading}</h2>
