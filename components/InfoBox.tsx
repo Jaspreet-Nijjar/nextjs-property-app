@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 interface InfoBoxProps {
   heading: string;
   backgroundColor: string;
-  textColor: string;
+  textColor?: string;
   buttonInfo: {
     link: string;
     backgroundColor: string;
