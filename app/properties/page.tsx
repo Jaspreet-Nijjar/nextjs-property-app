@@ -1,3 +1,4 @@
+import PropertyCard from '@/components/PropertyCard';
 import properties from '../../properties.json';
 
 const PropertiesPage = () => {
@@ -9,7 +10,7 @@ const PropertiesPage = () => {
           <p>No properties found</p>
         ) : (
           properties.map((property) => (
-            <div key={property._id}>{property.name}</div>
+            <PropertyCard key={property._id} property={property} />
           ))
         )}
       </div>
