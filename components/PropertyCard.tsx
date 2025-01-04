@@ -31,31 +31,43 @@ const PropertyCard = ({ property }) => {
           <h3 className="text-xl font-bold">{property.name}</h3>
         </div>
         <h3 className="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right">
-          $4,200/mo
+          ${getRateDisplay()}
         </h3>
 
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
           <p>
-            <i className="fa-solid fa-bed"></i> 3
+            <i className="fa-solid fa-bed"></i> {property.beds}
             <span className="md:hidden lg:inline">Beds</span>
           </p>
           <p>
-            <i className="fa-solid fa-bath"></i> 2
+            <i className="fa-solid fa-bath"></i> {property.baths}
             <span className="md:hidden lg:inline">Baths</span>
           </p>
           <p>
             <i className="fa-solid fa-ruler-combined"></i>
-            1,500 <span className="md:hidden lg:inline">sqft</span>
+            {property.square_feet}{' '}
+            <span className="md:hidden lg:inline">sqft</span>
           </p>
         </div>
 
         <div className="flex justify-center gap-4 text-green-900 text-sm mb-4">
-          <p>
-            <i className="fa-solid fa-money-bill"></i> Weekly
-          </p>
-          <p>
-            <i className="fa-solid fa-money-bill"></i> Monthly
-          </p>
+          {property.rates.nightly && (
+            <p>
+              <i className="fa-solid fa-money-bill"></i> Nightly
+            </p>
+          )}
+
+          {property.rates.weekly && (
+            <p>
+              <i className="fa-solid fa-money-bill"></i> Weekly
+            </p>
+          )}
+
+          {property.rates.monthly && (
+            <p>
+              <i className="fa-solid fa-money-bill"></i> Monthly
+            </p>
+          )}
         </div>
 
         <div className="border border-gray-100 mb-5"></div>
