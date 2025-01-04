@@ -8,7 +8,26 @@ import {
   FaMapMarker,
 } from 'react-icons/fa';
 
-const PropertyCard = ({ property }) => {
+interface PropertyProps {
+  id: string;
+  images: string;
+  type: string;
+  name: string;
+  beds: number;
+  baths: number;
+  square_feet: number;
+  rates: {
+    weekly: number;
+    nightly: number;
+    monthly: number;
+  };
+  location: {
+    city: string;
+    state: string;
+  };
+}
+
+const PropertyCard = ({ property }: { property: PropertyProps }) => {
   const getRateDisplay = () => {
     const { rates } = property;
 
