@@ -1,4 +1,5 @@
 import properties from '../properties.json';
+import PropertyCard from './PropertyCard';
 
 const HomeProperties = () => {
   const recentProperties = properties
@@ -11,6 +12,13 @@ const HomeProperties = () => {
         <h2 className="text-3xl font-bold text-blue-500 mb-6 text-center">
           Recent Properties
         </h2>
+        {recentProperties.length === 0 ? (
+          <p>No Properties Found</p>
+        ) : (
+          recentProperties.map((property) => (
+            <PropertyCard key={property._id} property={property} />
+          ))
+        )}
       </div>
     </section>
   );
