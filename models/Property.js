@@ -83,7 +83,8 @@ const PropertySchema = new Schema(
   },
   {
     timestamps: true,
-  }
+  },
+  { collection: 'properties' }
 );
 
 const Property = models.Property || model('Property', PropertySchema);
