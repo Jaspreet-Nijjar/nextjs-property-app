@@ -1,13 +1,17 @@
-const PropertyHeaderImage = () => {
+import Image from 'next/image';
+
+const PropertyHeaderImage = ({ image }: { image: string }) => {
   return (
     <section>
       <div className="container-xl m-auto">
         <div className="grid grid-cols-1">
-          <img
-            src="images/properties/a1.jpg"
+          <Image
+            src={`/images/properties/${image}`}
             alt=""
             className="object-cover h-[400px] w-full"
-            width="1800"
+            width={0}
+            height={0}
+            sizes="100vw"
           />
         </div>
       </div>
