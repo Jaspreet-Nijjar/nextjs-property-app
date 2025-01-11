@@ -7,7 +7,28 @@ import {
   FaMapMarker,
 } from 'react-icons/fa';
 
-const PropertyDetails = ({ property }) => {
+interface PropertyDetailsProps {
+  type: string;
+  name: string;
+  description: string;
+  beds: number;
+  baths: number;
+  square_feet: number;
+  location: {
+    street: string;
+    city: string;
+    state: string;
+    zipcode: string;
+  };
+  rates: {
+    weekly: number;
+    monthly: number;
+    nightly: number;
+  };
+  amenities: [];
+}
+
+const PropertyDetails = ({ property }: { property: PropertyDetailsProps }) => {
   return (
     <main>
       <div className="bg-white p-6 rounded-lg shadow-md text-center md:text-left">
