@@ -14,4 +14,15 @@ export const authOptions = {
       },
     }),
   ],
+  callbacks: {
+    // Invoked on successful sign in
+    async signIn({ profile }) {
+      // Add later
+    },
+
+    // Modifies the session object
+    async session({ session }) {
+      // Add later
+    },
+  },
 };
